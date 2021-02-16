@@ -32,7 +32,7 @@ kubectl exec -it pod/alpine-java-docker bin/sh
 - On OpenShift
  ```
 oc new-app --docker-image=ngacareer/alpine-java-docker -v /var/run/docker.sock:/var/run/docker.sock --name=alpine-java-docker
-oc exec -ti $(oc get pod -l app=alpine-java-docker -o jsonpath="{.items[0].metadata.name}") bin/sh
-$ dockerd --version
-$ docker --version
+oc new-app --docker-image=ngacareer/testtools:noroot --name=testtools
+oc exec -it $(oc get pod -l app=testtools -o jsonpath="{.items[0].metadata.name}") bin/sh
+$curl alpine-java-docker:8080
  ```
