@@ -17,22 +17,22 @@ Image supports version of Java :8
 ## How to use this image
 - On Docker 
 ```
-docker run -itd --name alpine-java-docker ngacareer/alpine-java-docker
+docker run -itd --name alpine-java-docker -v /var/run/docker.sock:/var/run/docker.sock ngacareer/alpine-java-docker
 docker exec -it alpine-java-docker bin/sh
-# java -version
-# javac -version
+# dockerd --version
+# docker --version
  ```
 - On Kubernetes
  ```
-kubectl run alpine-java-docker --image=ngacareer/alpine-java-docker
+kubectl run alpine-java-docker -v /var/run/docker.sock:/var/run/docker.sock --image=ngacareer/alpine-java-docker
 kubectl exec -it pod/alpine-java-docker bin/sh
-# java -version
-# javac -version
+# dockerd --version
+# docker --version
  ```
 - On OpenShift
  ```
-oc new-app --docker-image=ngacareer/alpine-java-docker --name=alpine-java-docker
+oc new-app --docker-image=ngacareer/alpine-java-docker -v /var/run/docker.sock:/var/run/docker.sock --name=alpine-java-docker
 oc exec -ti $(oc get pod -l app=alpine-java-docker -o jsonpath="{.items[0].metadata.name}") bin/sh
-$ java -version
-$ javac -version
+$ dockerd --version
+$ docker --version
  ```
