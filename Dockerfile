@@ -29,5 +29,5 @@ RUN set -eux; \
 
 COPY modprobe.sh /usr/local/bin/modprobe 
 COPY docker-entrypoint.sh /usr/local/bin/ 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh", "entrypoint.sh"]
 CMD ["sh"]
