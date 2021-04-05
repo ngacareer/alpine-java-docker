@@ -36,3 +36,4 @@ oc new-app --docker-image=ngacareer/testtools:noroot --name=testtools
 oc exec -it $(oc get pod -l app=testtools -o jsonpath="{.items[0].metadata.name}") bin/sh
 $curl alpine-java-docker:8080
  ```
+
